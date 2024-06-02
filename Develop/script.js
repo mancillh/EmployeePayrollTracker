@@ -3,6 +3,7 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 addEmployeesBtn.addEventListener('click', collectEmployees);
 
 let count = 0;
+let sum = 0;
 
 function collectEmployees() {
 
@@ -24,22 +25,21 @@ function collectEmployees() {
       salary: salaryInput
     };
   
-  console.log (employeesArray);
+  /*console.log (employeesArray);*/
   count++
-  console.log (count);
-  return employeesArray;
+  /*console.log (count);
+  console.log (employeesArray.salary);
+  return employeesArray;*/
+  
+  
+  sum += employeesArray.salary
+  console.log("The average salary of all our employees is $" + sum/count + ".00");
   
   }
-
+/*const displayAverageSalary = function(employeesArray) {*/
 }
+
 /*
-const displayAverageSalary = function(employeesArray) {
- const sum = employeesArray[2]
-
-  console.log(sum)/count);
-}
-}
-  
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
