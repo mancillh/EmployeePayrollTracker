@@ -25,18 +25,20 @@ function collectEmployees() {
       salary: salaryInput
     };
   
-  /*console.log (employeesArray);*/
+  console.log (employeesArray);
   count++
-  /*console.log (count);
-  console.log (employeesArray.salary);
-  return employeesArray;*/
+  /*return employeesArray;*/
   
   
   sum += employeesArray.salary
-  console.log("The average salary of all our employees is $" + sum/count + ".00");
+  console.log("The average salary of our employees is $" + sum/count + ".00");
+
   
+  let computerChoice = Math.floor(Math.random() * count);
+  console.log ("Congratulations to " + computerChoice + ", our random drawing winner!");
   }
-/*const displayAverageSalary = function(employeesArray) {*/
+  /*
+const displayAverageSalary = function(employeesArray) {*/
 }
 
 /*
@@ -45,6 +47,7 @@ const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
 }
 }*/
+
 /*
   ====================
   STARTER CODE
