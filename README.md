@@ -5,4 +5,4 @@ This website allows the user to view their employees' payroll data and properly 
 
 When the user clicks the "Add employee" button, they are prompted to enter first name, last name, and salary. When the user finishes adding an employee, they are prompted to continue or cancel. When they are finished entering new employee information, their employee data is displayed on the page sorted alphabetically by last name, and the console shows the average employee salary and chooses an employee at random. 
 
-[Screenshot of Employee Payroll Tracker](./develop/screenshot_employee_payroll.JPG)
+![Screenshot of Employee Payroll Tracker](image.png)
