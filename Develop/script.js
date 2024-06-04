@@ -1,51 +1,72 @@
 // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
-addEmployeesBtn.addEventListener('click', collectEmployees);
-
-let count = 0;
-let sum = 0;
 
 function collectEmployees() {
 
-  while (confirm("Do you want to add another employee?")) {
-    
+  const employeesArray = [];
+
+  let start = true
+
+  while (start) {
+
     const firstNameInput = prompt("Enter first name");
     const lastNameInput = prompt("Enter last name");
-    let salaryInput = prompt("Enter salary");
+    const salaryInput = prompt("Enter salary");
 
     if (isNaN(salaryInput)) {
       salaryInput = 0;
-  } else {
-      salaryInput = Number(salaryInput);
-  }
-    
-    const employeesArray = {
+    } 
+
+    const employeeInfo = {
       firstName: firstNameInput,
       lastName: lastNameInput,
-      salary: salaryInput
+      salary: parseInt(salaryInput)
     };
-  
-  console.log (employeesArray);
-  count++
-  /*return employeesArray;*/
-  
-  
-  sum += employeesArray.salary
-  console.log("The average salary of our employees is $" + sum/count + ".00");
+
+    employeesArray.push(employeeInfo);
+
+    start = confirm("Do you want to add another employee?")
+  }
 
   
-  let computerChoice = Math.floor(Math.random() * count);
-  console.log ("Congratulations to " + computerChoice + ", our random drawing winner!");
-  }
-  /*
-const displayAverageSalary = function(employeesArray) {*/
+  return employeesArray;
 }
+
+const displayAverageSalary = function (employeesArray) {
+  // we need to loop through the array. add up the salaries of all the employess then divide by the total amount of employees
+
+  let total = 0;
+
+  for (i = 0; i < employeesArray.length; i++) {
+    total += employeesArray[i].salary
+  }
+
+  const average = total/employeesArray.length
+  console.log("The average salary of our employees is $" + average + ".00");
+}
+
+
+const getRandomEmployee = function (employeesArray) {
+  let computerChoiceNum = employeesArray[Math.floor(Math.random() * employeesArray.length)];
+ 
+  console.log(`Congratulations to ${computerChoiceNum.firstName} ${computerChoiceNum.lastName} our random drawing winner!`);
+}
+
+
+/*let computerChoiceName = ${secondArray[computerChoiceNum]};
+//need two arrays, one called employeesArray that returns first name, last name, and salary//
+//second array, accumulated list of employees to go with computerChoice//
+
+let secondArray = [];
+let i = 0;
+
+while (i >= 0) {
+myArray.push(i);
+}
+};
 
 /*
-// Select a random employee
-const getRandomEmployee = function(employeesArray) {
-  // TODO: Select and display a random employee
-}
+
 }*/
 
 /*
@@ -55,7 +76,7 @@ const getRandomEmployee = function(employeesArray) {
 */
 
 // Display employee data in an HTML table
-const displayEmployees = function(employeesArray) {
+const displayEmployees = function (employeesArray) {
   // Get the employee table
   const employeeTable = document.querySelector('#employee-table');
 
@@ -78,9 +99,9 @@ const displayEmployees = function(employeesArray) {
 
     const salaryCell = document.createElement("td");
     // Format the salary as currency
-    salaryCell.textContent = currentEmployee.salary.toLocaleString("en-US",{
-      style:"currency",
-      currency:"USD"
+    salaryCell.textContent = currentEmployee.salary.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD"
     });
 
     newTableRow.append(salaryCell);
@@ -89,7 +110,7 @@ const displayEmployees = function(employeesArray) {
   }
 }
 
-const trackEmployeeData = function() {
+const trackEmployeeData = function () {
   const employees = collectEmployees();
 
   console.table(employees);
@@ -100,7 +121,7 @@ const trackEmployeeData = function() {
 
   getRandomEmployee(employees);
 
-  employees.sort(function(a,b) {
+  employees.sort(function (a, b) {
     if (a.lastName < b.lastName) {
       return -1;
     } else {
