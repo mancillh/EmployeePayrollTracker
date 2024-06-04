@@ -27,13 +27,10 @@ function collectEmployees() {
 
     start = confirm("Do you want to add another employee?")
   }
-
-  
   return employeesArray;
 }
 
 const displayAverageSalary = function (employeesArray) {
-  // we need to loop through the array. add up the salaries of all the employess then divide by the total amount of employees
 
   let total = 0;
 
@@ -45,29 +42,12 @@ const displayAverageSalary = function (employeesArray) {
   console.log("The average salary of our employees is $" + average + ".00");
 }
 
-
 const getRandomEmployee = function (employeesArray) {
   let computerChoiceNum = employeesArray[Math.floor(Math.random() * employeesArray.length)];
  
   console.log(`Congratulations to ${computerChoiceNum.firstName} ${computerChoiceNum.lastName} our random drawing winner!`);
 }
 
-
-/*let computerChoiceName = ${secondArray[computerChoiceNum]};
-//need two arrays, one called employeesArray that returns first name, last name, and salary//
-//second array, accumulated list of employees to go with computerChoice//
-
-let secondArray = [];
-let i = 0;
-
-while (i >= 0) {
-myArray.push(i);
-}
-};
-
-/*
-
-}*/
 
 /*
   ====================
